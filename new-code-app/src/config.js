@@ -1,5 +1,5 @@
 const hostname = window.location.hostname
-export const apiDomain = 'http://' + hostname + ':8000/'
+export const apiDomain = 'http://' + hostname + ':8001/'
 
 export const getHeaderPublic = function () {
     return {
