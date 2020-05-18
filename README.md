@@ -13,8 +13,7 @@
 #### Download do projeto
 
 ```
-    - Faça o fork do projeto
-    - Clone o projeto forkado para sua maquina: git clone git@github.com:seuusuario/new-code.git
+    - Clone o projeto para sua maquina: git clone git@github.com:CodeSolidario/new-code.git
 
 ```
 
@@ -50,7 +49,7 @@ As tarefas estão disponíveis na aba Projects do repositório.
 
     - Crie uma nova branch local com o nome da tarefa escolhida.
     - Realize as alterações necessárias.
-    - Suba a branch alterada para o seu repositório forkado.
+    - Suba a branch alterada para o repositório com git push origin NOMEDABRANCH.
     - Faça um pull request.
 
     Após analisar as alterações de tudo estiver funcionando o pull request será aceito.
@@ -59,8 +58,10 @@ As tarefas estão disponíveis na aba Projects do repositório.
 
 ### Atualizando seu projeto local com o original
 
+    * Mantenha seu repositório local atualizado dando git pull na branch master.
+
 ### Criando tarefas
 
     - Caso localize algum bug ou melhoria a ser feita no projeto abra uma nova issue seguindo a nomenclatura "TF000" para o frontend ou "TB000" para o backend, sendo que o número deve ser sempre o próximo após a última issue cadastrada.
-    - Na aba de issues, na barra lateral, em "Projects", selecionar o projeto Code Solidário.
+    - Na aba de issues, na barra lateral, em "Projects", selecionar o projeto.
     - Descreva a melhoria ou correção que deve ser feita.
