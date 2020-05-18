@@ -98,6 +98,7 @@ git push origin develop
 
 ### Solicite um PULL REQUEST
 
+Faça um pull request do seu repositório para o repositório do projeto.
 Suas alterações serão enviadas para avaliação do responsável pelo repositório, testadas e caso esteja tudo certo, serão aprovadas e incluídas no projeto.
 
 ## Mantenha seu repositório sincronizado com o do original
