@@ -1,6 +1,6 @@
 # Projeto Code Solidário
 
-<p>Este é um projeto de uma plataforma online onde desenvolvedores podem divulgar suas ideias de projetos de interesse social e outros desenvolvedores podem colaborar com eles.</p>
+<p>Este é um projeto de uma plataforma online para compartilhamento e colaboração em projetos open source que ajusem a resolver problemas sociais.</p>
 
 ---
 
@@ -8,60 +8,106 @@
     
 ![laravel-vue-docker](https://user-images.githubusercontent.com/32945891/80235462-21181500-8630-11ea-874c-331b519698b4.png)
 
-### Começando
+## Começando
 
-#### Download do projeto
+### Crie um FORK do projeto
+
+Vá para o repositório e clique no botão "Fork", isso irá criar uma cópia do projeto original para o seu repositório no GitHub.
+
+### Clone o projeto forkado para sua máquina.
 
 ```
-    - Clone o projeto para sua maquina: git clone git@github.com:CodeSolidario/new-code.git
-
+git clone git@github.com:SEUUSUARIO/NOMEREPOSITORIO.git
 ```
 
-#### Configuração do .env
+### Carregue o repositório origem do projeto
+
+Para manter seu projeto atualizado é necessário configurar um branch "upstream" com o repositório origem.
+
+```
+git remote add upstream git@github.com:CodeSolidario/new-code.git
+git fetch upstream
+```
+
+Origin: Será o seu repositório forkado
+Upstream: Será o repositório original dentro do Code Solidário.
+
+### Atualize seu fork
+
+```
+git checkout master
+git fetch upstream
+git merge upstream/master
+git push origin master
+
+git checkout develop
+git fetch upstream
+git merge upstream/develop
+git push origin develop
+```
+
+### Configuração do projeto
 
     Crie um arquivo .env e cole nele o conteúdo que está em .env.example.
+    cd NOMEDOPROKETO
 
-### Subindo o container docker
+```
+docker-compose up -d
+```
 
-    cd new-code
-    docker-compose up -d
+    Configure a API
 
-### Configurando a api
+```
+docker-compose exec api bash
+composer install
+php artisan key:generate
+php artisan migrate
+exit
+```
 
-    docker-compose exec api bash
-    composer install
-    php artisan key:generate
-    php artisan migrate
-    exit
+Acesse a página do frontend em: http://localhost:8080
+Acesse a página da api em: http://localhost:8000
+Caso a página da api apresente erro de permissão de acesso esecute:
 
-    Acesse a página do frontend em: http://localhost:8081
-    Acesse a página da api em: http://localhost:8001
-    *caso a página da api apresente erro de permissão de acesso esecute:
-        docker-compose exec api chmod -R 777 /var/www/storage
+```
+    docker-compose exec api chmod -R 777 /var/www/storage
+```
 
-## Colaborando com o projeto
+### Contribuindo com o projeto
 
-### Tarefas
+Realize as alterações necessárias, certifique-se de estar trabalhando na branch develop.
+Após finalizar as alterações suba para o seu repositório.
 
-As tarefas estão disponíveis na aba Projects do repositório.
+```
+git add .
 
-### Trabalhando em tarefas
+git commit -m "[CODIGODATAREFA] SEU COMENTÁRIO"
+```
 
-    - Crie uma nova branch local com o nome da tarefa escolhida.
-    - Realize as alterações necessárias.
-    - Suba a branch alterada para o repositório com git push origin NOMEDABRANCH.
-    - Faça um pull request.
+Caso algo esteja errado você pode fazer o reset
 
-    Após analisar as alterações de tudo estiver funcionando o pull request será aceito.
+```
+git reset --hard HEAD~1
+```
 
-    * Ao escolher uma tarefa não esqueça de mudar para "In progress" na aba Projects.
+Faça um push para a branch develop do seu repositório
 
-### Atualizando seu projeto local com o original
+```
+git push origin develop
+```
 
-    * Mantenha seu repositório local atualizado dando git pull na branch master.
+### Solicite um PULL REQUEST
 
-### Criando tarefas
+Faça um pull request do seu repositório para o repositório do projeto.
+Suas alterações serão enviadas para avaliação do responsável pelo repositório, testadas e caso esteja tudo certo, serão aprovadas e incluídas no projeto.
 
-    - Caso localize algum bug ou melhoria a ser feita no projeto abra uma nova issue seguindo a nomenclatura "TF000" para o frontend ou "TB000" para o backend, sendo que o número deve ser sempre o próximo após a última issue cadastrada.
-    - Na aba de issues, na barra lateral, em "Projects", selecionar o projeto.
-    - Descreva a melhoria ou correção que deve ser feita.
+## Mantenha seu repositório sincronizado com o do original
+
+Sempre repita os comandos de atualização do fork antes de começar a trabalhar em uma nova atualização.
+
+## Criando Tarefas
+
+- Caso localize algum bug ou melhoria a ser feita no projeto abra uma nova issue seguindo a nomenclatura "TF000" para o frontend ou "TB000" para o backend, sendo que o número deve ser sempre o próximo após a última issue cadastrada.
+- Na aba de issues, na barra lateral, em "Projects", selecionar o projeto.
+- Descreva a melhoria ou correção que deve ser feita.
+  As issues criadas vinculadas ao projeto se tornam cards de atividade na aba Projects do repositório.
