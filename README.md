@@ -44,7 +44,7 @@
 
 ### Tarefas
 
-As tarefas estão disponíveis na aba Projects do <a href="https://github.com/CodeSolidario">Code Solidário.</a>
+As tarefas estão disponíveis na aba Projects do repositório.
 
 ### Trabalhando em tarefas
 
